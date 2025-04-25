@@ -141,7 +141,7 @@ app.get('/post/:id', async (req, res) => {
   const postDoc = await Post.findById(id).populate('author', ['username']);
   res.json(postDoc);
 })
-app.listen(4000);
+app.listen(process.env.PORT || 3000);
 
 //CyvINHgHUtmhTydJ
 //mongodb+srv://amitgarg:CyvINHgHUtmhTydJ@cluster0.hnvro.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0  
