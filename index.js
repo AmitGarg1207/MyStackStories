@@ -13,12 +13,11 @@ const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 const path = require('path')
-
+app.use('/uploads', express.static(path.join(__dirname , '/uploads')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({credentials:true,origin:'/'}));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads', express.static(__dirname + '/uploads'));
-app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect('mongodb+srv://amitgarg:CyvINHgHUtmhTydJ@cluster0.hnvro.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
